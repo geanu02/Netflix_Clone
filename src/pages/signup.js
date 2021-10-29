@@ -33,8 +33,9 @@ export default function SignUp() {
                     displayName: firstName,
                     photoURL: Math.floor(Math.random() * 5) + 1,
                 })
-                .then(() => history.push(ROUTES.BROWSE))
-                .catch((error) => {
+                .then(() => {
+                    history.push(ROUTES.BROWSE)
+                }).catch((error) => {
                     setEmailAddress('')
                     setPassword('')
                     setError(error.message)
