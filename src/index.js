@@ -5,7 +5,7 @@ import { GlobalStyles } from "./global-styles"
 import { FirebaseContext } from "./context/firebase"
 
 // HYDRATING THE FIRESTORE
-// import { seedDatabase } from "./seed"
+//import { seedDatabase } from "./seed"
 // -------------------------------------
 
 const config = {
@@ -25,7 +25,7 @@ const config = {
 const firebase = window.firebase.initializeApp(config)
 
 // HYDRATING THE FIRESTORE
-// seedDatabase(firebase)
+//seedDatabase(firebase)
 // -----------------------
 
 ReactDOM.render(

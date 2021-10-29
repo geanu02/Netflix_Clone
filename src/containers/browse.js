@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from "react"
-import { Header, Loading, Card } from "../components"
+import Fuse from 'fuse.js'
+import { Header, Loading, Card, Player } from "../components"
 import * as ROUTES from "../constants/routes"
 import { FirebaseContext } from "../context/firebase"
 import { SelectProfileContainer } from "./profiles"
 import { FooterContainer } from "./footer"
-import { Picture } from "../components/header/styles/header"
 
 export function BrowseContainer({ slides }) {
 
@@ -31,6 +31,18 @@ export function BrowseContainer({ slides }) {
         setSlideRows(slides[category])
     }, [slides, category])
 
+    useEffect(() => {
+        const fuse = new Fuse(slideRows,
+            {keys: ['data.title', 'data.description', 'data.genre']})
+        const results = fuse.search(searchTerm).map(({item}) => item)
+
+        if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
+            setSlideRows(results)
+        } else {
+            setSlideRows(slides[category])
+        }
+    }, [searchTerm])
+
     return (
         profile.displayName ? (
         <>
@@ -56,6 +68,7 @@ export function BrowseContainer({ slides }) {
                                 Films
                             </Header.Link>
                         </Header.Group>
+                        <Header.Group>
                             <Header.Search 
                                 searchTerm={searchTerm}
                                 setSearchTerm={setSearchTerm}
@@ -76,18 +89,13 @@ export function BrowseContainer({ slides }) {
                                     </Header.Group>
                                 </Header.Dropdown>
                             </Header.Profile>
-
-                        <Header.Group>
-
                         </Header.Group>
-
                     </Header.Frame>
 
                     <Header.Feature>
                         <Header.FeatureCallOut>
                             Watch Van Der Torens now
                         </Header.FeatureCallOut>
-                        
                         <Header.Text>
                             Follow the adventures of Chrissypoo and Gigi as they navigate their way around the Colorado Rockies and the canyons of Utah.
                         </Header.Text>
@@ -119,7 +127,10 @@ export function BrowseContainer({ slides }) {
                                 ))}
                             </Card.Entities>
                             <Card.Feature category={category}>
-                                <p>Featurette</p>
+                                <Player>
+                                    <Player.Button />
+                                    <Player.Video />
+                                </Player>
                             </Card.Feature>
                         </Card>
                     ))}

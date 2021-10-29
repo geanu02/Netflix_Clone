@@ -33,13 +33,13 @@ export default function SignUp() {
                     displayName: firstName,
                     photoURL: Math.floor(Math.random() * 5) + 1,
                 })
-                .then(() => {
+                .then(() => history.push(ROUTES.BROWSE))
+                .catch((error) => {
                     setEmailAddress('')
                     setPassword('')
-                    setError('')
-                    history.push(ROUTES.BROWSE)
+                    setError(error.message)
                 })
-            ).catch((error) => setError(error.message))
+            )
     }
 
     return (
