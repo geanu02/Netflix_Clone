@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { HeaderContainer } from "../containers/header"
 import { Form } from "../components"
+import { FooterContainer } from "../containers/footer"
 import * as ROUTES from "../constants/routes"
 
 export default function SignIn() {
@@ -8,10 +9,15 @@ export default function SignIn() {
     const [ emailAddress, setEmailAddress ] = useState('')
     const [ password, setPassword ] = useState('')
 
-    const handleSignin = (e) => {
-        e.preventDefault()
-    }
+    const isInvalid = (
+        password === '' |
+        emailAddress === ''
+     )
+
+    const handleSignin = (e) => e.preventDefault()
+
     return (
+    <>
         <HeaderContainer>
             <Form>
                 <Form.Title>Sign In</Form.Title>
@@ -20,17 +26,20 @@ export default function SignIn() {
                 <Form.Base onSubmit={handleSignin} method="POST">
                     <Form.Input
                         placeholder="Email Address"
+                        minlength="3"
+                        type="email"
                         value={emailAddress}
                         onChange={({ target }) => setEmailAddress(target.value)}
                     />
                     <Form.Input
                         placeholder="Password"
                         type="password"
+                        minlength="4"
                         value={password}
                         autoComplete="off"
                         onChange={({ target }) => setPassword(target.value)}
                     />
-                    <Form.Submit disabled={false} type="submit">
+                    <Form.Submit disabled={isInvalid} type="submit">
                         Sign In
                     </Form.Submit>
                     <Form.Text>
@@ -42,5 +51,7 @@ export default function SignIn() {
                 </Form.Base>
             </Form>
         </HeaderContainer>
+        <FooterContainer />
+    </>
     )
 }
