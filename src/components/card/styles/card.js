@@ -88,7 +88,7 @@ export const Item = styled.div`
     margin-right: 5px;
     position: relative;
     cursor: pointer;
-    transition: transform 0.2;
+    transition: transform 0.5 ease-in-out;
     
     &:hover {
         transform: scale(1.3);
