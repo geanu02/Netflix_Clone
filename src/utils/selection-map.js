@@ -2,6 +2,10 @@ export default function selectionMap({ series, films }) {
     return {
         series: [
             { 
+                title: "More Gian", 
+                data: series.filter(item => item.genre === "more-gian") 
+            },
+            { 
                 title: "Documentaries", 
                 data: series.filter(item => item.genre === "documentaries") 
             },
