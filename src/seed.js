@@ -9,6 +9,48 @@ export function seedDatabase(firebase) {
   
     /* Series
       ============================================ */
+    // More Gian
+    firebase.firestore().collection('series').add({
+      id: getUUID(),
+      title: 'The Volcanic Adventures: Lassen',
+      description: 'Gigi and Chrissypoo head back to Lassen summit to explore unusual volcanic activity.',
+      genre: 'more-gian',
+      maturity: '12',
+      slug: 'volcanic-adventures',
+    });
+    firebase.firestore().collection('series').add({
+      id: getUUID(),
+      title: 'Venetians',
+      description: 'Gigi and Chrissypoo get lost but find great food and culture in Venice just before coronavirus hit.',
+      genre: 'more-gian',
+      maturity: '12',
+      slug: 'venice',
+    });
+    firebase.firestore().collection('series').add({
+      id: getUUID(),
+      title: 'Following Hudson',
+      description: 'Gigi and Chrissypoo climb Bear Mountain and unravel the majestic Hudson river scenery.',
+      genre: 'more-gian',
+      maturity: '12',
+      slug: 'upstate',
+    });
+    firebase.firestore().collection('series').add({
+      id: getUUID(),
+      title: 'Van Der Torens: Valley of Fire',
+      description: 'Gigi and Chrissypoo explore the odd, but colorful rock formations in the Nevada outskirts.',
+      genre: 'more-gian',
+      maturity: '12',
+      slug: 'valley-of-fire',
+    });
+    firebase.firestore().collection('series').add({
+      id: getUUID(),
+      title: 'Winter Wonderland',
+      description: 'Gigi and Chrissypoo realize what it means to spend an day in Central Park after a blizzard.',
+      genre: 'more-gian',
+      maturity: '12',
+      slug: 'winter-wonderland',
+    });
+
     // Documentaries
     firebase.firestore().collection('series').add({
       id: getUUID(),
