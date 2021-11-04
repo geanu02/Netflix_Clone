@@ -94,7 +94,7 @@ export function BrowseContainer({ slides }) {
 
                     <Header.Feature>
                         <Header.FeatureCallOut>
-                            Watch Van Der Torens now
+                            Watch Van Der Torens: Fisher Towers now
                         </Header.FeatureCallOut>
                         <Header.Text>
                             Follow the adventures of Chrissypoo and Gigi as they navigate their way around the Colorado Rockies and the canyons of Utah.

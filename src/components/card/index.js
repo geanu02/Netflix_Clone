@@ -97,7 +97,7 @@ Card.Feature = function CardFeature({children, category, ...restProps}) {
                     <Maturity rating={itemFeature.maturity}>
                         {itemFeature.maturity < 12 ? 'PG' : itemFeature.maturity}
                     </Maturity>
-                    <FeatureText>
+                    <FeatureText style={{ textTransform: "uppercase" }}>
                         {itemFeature.genre.charAt(0).toUpperCase() + itemFeature.genre.slice(1)}
                     </FeatureText>
                 </Group>

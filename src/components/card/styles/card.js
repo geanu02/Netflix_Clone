@@ -88,10 +88,11 @@ export const Item = styled.div`
     margin-right: 5px;
     position: relative;
     cursor: pointer;
-    transition: transform 0.5 ease-in;
+    transition: transform 250ms cubic-bezier(0.5, 0, 0.5, 1),
+        opacity 250ms linear;
     
     &:hover {
-        transform: scale(1.3);
+        transform: scale(1.20);
         z-index: 99;
     }
     
@@ -132,6 +133,8 @@ export const FeatureText = styled.p`
 `;
 
 export const Feature = styled.div`
+    margin-top: 3em;
+    margin-right: 3em;
     display: flex;
     flex-direction: row;
     background: url(${({ src }) => src});
