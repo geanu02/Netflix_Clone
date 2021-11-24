@@ -65,9 +65,9 @@ export default function SignIn() {
                     <Form.TextSmall>
                         This page is protected by Google reCAPTCHA.
                     </Form.TextSmall>
-                    <Form.TextSmall>
+                    {/* <Form.TextSmall>
                         Try signing in as test@geanu.dev, password: test123
-                    </Form.TextSmall>
+                    </Form.TextSmall> */}
                 </Form.Base>
             </Form>
         </HeaderContainer>
