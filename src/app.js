@@ -13,7 +13,7 @@ export function App() {
             <Switch>
                 <IsUserRedirect
                     exact
-                    path={ROUTES.MOCK}
+                    path={ROUTES.HOME}
                     loggedInPath={ROUTES.BROWSE}
                 >
                     <Browse />
@@ -37,12 +37,12 @@ export function App() {
                 >
                     <Browse />
                 </ProtectedRoute>
-                <IsUserRedirect 
+                {/* <IsUserRedirect 
                     user={user}
                     loggedInPath={ROUTES.BROWSE}
                     path={ROUTES.HOME}>
                     <Home />
-                </IsUserRedirect>
+                </IsUserRedirect> */}
             </Switch>
         </Router>
     );
