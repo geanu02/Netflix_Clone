@@ -37,6 +37,14 @@ export function App() {
                 >
                     <Browse />
                 </ProtectedRoute>
+                <IsUserRedirect
+                    user={user}
+                    loggedInPath={ROUTES.BROWSE}
+                    path={ROUTES.MOCK}
+                >
+                    <Browse />
+                </IsUserRedirect>
+
                 {/* <IsUserRedirect 
                     user={user}
                     loggedInPath={ROUTES.BROWSE}
