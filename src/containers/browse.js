@@ -16,34 +16,46 @@ export function BrowseContainer({ slides }) {
 
     const { firebase } = useContext(FirebaseContext)
 
+    // Default Username
     const user = {
         displayName: "Mock User",
         photoURL: "1"
     }
 
+    // 3-second Loading Screen
     useEffect(() => {
         setTimeout(() => {
+            // Change Loading state to false
             setLoading(false)
         }, 3000);
+    // Dependent array contains user, which re-renders the component when the user state changes
     }, [user])
 
+    // Load SlideRows arrays with data 
     useEffect(() => {
+        // Change SlideRows state to the current slide state of current category array
         setSlideRows(slides[category])
+    // Dependent array contains slides and categories, which re-renders the component when the user chooses a new category
     }, [slides, category])
 
+    // Start the fuse auto search feature
     useEffect(() => {
         const fuse = new Fuse(slideRows,
+            // keys to search are titles, description and genre
             {keys: ['data.title', 'data.description', 'data.genre']})
+        // results is an array for the SlideRows state
         const results = fuse.search(searchTerm).map(({item}) => item)
-
         if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
+            // If conditional returns results and search input is more than 3 characters
             setSlideRows(results)
         } else {
             setSlideRows(slides[category])
         }
+    // Dependent array contains searchTerm, which re-renders the component when the user changes the search keyword
     }, [searchTerm])
 
     return (
+        // If the current profile has a displayName, then render the following
         profile.displayName ? (
         <>
         {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
